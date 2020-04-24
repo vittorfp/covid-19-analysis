@@ -1,0 +1,17 @@
+                               SARIMAX Results                               
+Dep. Variable:  ,y                             ,  No. Observations:  ,31     
+Model:          ,SARIMAX(0, 1, 0)x(0, 1, 0, 17),  Log Likelihood     ,-95.282
+Date:           ,Fri, 24 Apr 2020              ,  AIC                ,192.564
+Time:           ,09:53:24                      ,  BIC                ,193.129
+Sample:         ,0                             ,  HQIC               ,192.448
+                , - 31                         ,                     ,       
+Covariance Type:,opg                           ,                     ,       
+      ,   coef   , std err ,    z    ,P>|z| ,  [0.025 ,  0.975] 
+sigma2, 1.359e+05, 5.38e+04,    2.523, 0.012, 3.03e+04, 2.41e+05
+Ljung-Box (Q):         ,9.23,  Jarque-Bera (JB):  ,0.47
+Prob(Q):               ,0.68,  Prob(JB):          ,0.79
+Heteroskedasticity (H):,4.21,  Skew:              ,0.46
+Prob(H) (two-sided):   ,0.19,  Kurtosis:          ,2.84
+
+Warnings:
+[1] Covariance matrix calculated using the outer product of gradients (complex-step).

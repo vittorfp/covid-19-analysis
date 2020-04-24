@@ -10,11 +10,13 @@
 #python-dotenv>=0.5.1
 
 
-# 
+#
 numpy
-pandas
 matplotlib
 seaborn
 statsmodels
 swifter
 sklearn
+skits
+pandas
+pmdarima

@@ -11,7 +11,7 @@ import pmdarima as pm
 p_data = Path(__file__).resolve().parents[2].joinpath('data', 'raw', 'arquivo_geral.csv')
 p_rep = Path(__file__).resolve().parents[2].joinpath('reports')
 
-def main(max_m = 40):
+def main(max_m = 31):
 	if not p_data.is_file():
 		raise FileNotFoundError('Must provide a raw data!')
 
@@ -33,7 +33,7 @@ def main(max_m = 40):
 	# 	suppress_warnings=True, stepwise=True, n_jobs=-1
 	# )
 	summ = ' '
-	mae = 1e6
+	score = 1e6
 	for m in range(1, max_m):
 		d = pm.arima.ndiffs(time_series)
 		if m > 1:
@@ -48,13 +48,14 @@ def main(max_m = 40):
 				time_series, start_p=1, start_q=1, max_p=30, max_q=30, m=m,
 				start_P=0, start_Q=0, max_P=10, max_Q=10, seasonal=True, d=d, D=D,
 				trace=True, error_action='ignore', suppress_warnings=True,
-				scoring='mae', stepwise=True, n_jobs=-1
+				scoring='mse', stepwise=True, n_jobs=-1
 			)
 		except: continue
-		fit_mae = np.median(np.abs(stepwise_fit.resid()))
+		fit_rmse = np.sqrt(np.sum(np.power(stepwise_fit.resid(), 2)))
 		fit_aic = stepwise_fit.aic()
-		if fit_mae < mae:
-			mae = fit_mae
+		fit_score = fit_rmse * fit_aic
+		if fit_score < score:
+			score = fit_rmse
 			summ = stepwise_fit.summary()
 
 	now = dt.datetime.now()

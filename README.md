@@ -1,7 +1,20 @@
-covid-19-analysis
+COVID-19 Analysis
 ==============================
 
-A short description of the project.
+Esse projeto propõe algumas análises sobre a evolução do COVID-19 no Brasil e no mundo. 
+
+#### Crescimento global
+Reproduizimos visualizações comparativas entre países, mostrando como tem funcionado o 
+crescimento em cada um deles.
+
+![](./reports/figures/global-comparation.png)
+#### Forecasts do cenario brasileiro
+Produzimos *forecasts* do numero de casos futuros utilizando modelos ARIMA.
+
+**Novos casos**
+![](./reports/figures/forecast-new-cases.png)
+**Total acumulado de casos**
+![](./reports/figures/forecast-total.png)
 
 Project Organization
 ------------
